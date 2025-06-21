@@ -1,6 +1,8 @@
-FROM jenkins/jenkins:lts-jdk17
+FROM openjdk:8-jre-alpine
 
-USER root
-RUN apt-get update && apt-get install -y docker.io \
-    && usermod -aG docker jenkins
-USER jenkins
+EXPOSE 8080
+
+COPY ./target/java-maven-app-*.jar /usr/app/
+WORKDIR /usr/app
+
+CMD java -jar java-maven-app-*.jar
