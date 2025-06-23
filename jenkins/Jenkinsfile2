@@ -12,11 +12,11 @@ pipeline {
         stage("init") {
             steps {
                 script {
-                   gv = load "script.groovy"
+                  gv = load "jenkins/script.groovy"
                 }
             }
         }
-        stage("build") {
+        stage("build App") {
             steps {
                 script {
                     gv.buildApp()
@@ -35,6 +35,13 @@ pipeline {
                 }
             }
         }
+        stage("build Image") {
+            steps {
+                script {
+                    gv.buildImage()
+                }
+            }
+        }        
         stage("deploy") {
             steps {
                 script {
