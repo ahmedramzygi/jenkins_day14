@@ -1,6 +1,8 @@
 def buildApp() {
     echo "building the application..."
-    sh 'mvn package'
+    withMaven(maven: 'maven') {
+        sh 'mvn package'
+    }
 } 
 def testApp() {
     echo "Testing the application..."
