@@ -1,6 +1,6 @@
 def buildApp() {
     echo "building the application..."
-    sh 'mvn package'
+    sh 'mvn install'
 } 
 def testApp() {
     echo "Testing the application..."
